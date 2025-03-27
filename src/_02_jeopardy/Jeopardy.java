@@ -40,14 +40,18 @@ public class Jeopardy implements ActionListener {
 	private int buttonCount = 0;
 	private Sound jeopardyThemeClip;
 
+	public static void main(String[] args) {
+		new Jeopardy().run();
+	}
 
 
 	public void run() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//WHAT DoES THIS LINE DO?
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
-
+//What's the difference between this run method and the main method in the runner?
 		// 1. Make the frame show up
 		frame.setVisible(true);
 		// 2. Give your frame a title
@@ -88,7 +92,7 @@ secondButton.addActionListener(this);
 	fifthButton = createButton("$1000");
 	fifthButton.addActionListener(this);
 	quizPanel.add(fifthButton);
-	//Question to ask - what does 'this' mean again?
+	
 	/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -138,8 +142,8 @@ buttonCount++;
 			askQuestion("When was the Treaty of Paris signed(just enter the year only)?", "1783", 600);
 		}
 		if(buttonPressed == fourthButton) {
-			askQuestion("\"It starts with a B, and you can use this adjective to describe someone who is \"\n"
-					+ "\ncontinuously asking you a bunch of questions. The first 4 letters is a word that\"\n"
+			askQuestion("It starts with a B, and you can use this adjective to describe someone who is"
+					+ "\ncontinuously asking you a bunch of questions. The first 4 letters is a word that"
 					+ "\ncan also be called an explosive.", "bombardent", 800);
 		}
 		if(buttonPressed == fifthButton) {
