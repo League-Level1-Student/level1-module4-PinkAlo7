@@ -1,5 +1,6 @@
 package _03_typing_tutor;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
@@ -29,8 +30,6 @@ public class TypingTutor implements KeyListener {
 	public void setup() {
 		typingFrame.setVisible(true);
 		typingFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		currentLetter = generateRandomLetter();
-		typingLabel.setText(String.valueOf(currentLetter));
 		typingLabel.setFont(typingLabel.getFont().deriveFont(28.0f));
 		typingLabel.setHorizontalAlignment(JLabel.CENTER);
 		typingFrame.addKeyListener(this);
@@ -47,11 +46,22 @@ public class TypingTutor implements KeyListener {
 	public void keyPressed(KeyEvent keyEvent) {
 		// TODO Auto-generated method stub
 		System.out.println( keyEvent.getKeyChar() );
+		if(keyEvent.getKeyChar() == currentLetter) {
+			System.out.println("correct");
+			typingPanel.setBackground(new Color(69, 237, 31));
+		}
+			else {
+				typingPanel.setBackground(new Color(255,0,0));
+			}
+		
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		generateRandomLetter();
+		
+		currentLetter = generateRandomLetter();
 		typingLabel.setText(String.valueOf(currentLetter));
+		
+		
 	}
 }
