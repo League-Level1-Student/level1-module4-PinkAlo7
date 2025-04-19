@@ -42,7 +42,7 @@ public class BookOfIllusions extends MouseAdapter {
 		illusionLabelThree = loadImageFromComputer(illusionThree);
 		// 8. add your JLabel to the frame
 		illusionframe.add(illusionLabelOne);
-		illusionframe.add(illusionLabelTwo);
+		
 
 
 		// 9. call the pack() method on the frame
@@ -55,17 +55,26 @@ public class BookOfIllusions extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		// 11. Print "clicked!" to the console when the mouse is pressed
 		System.out.println("clicked!");
+		currentImage+=1;
 		// 12. remove everything from the frame that was added earlier
 		//Work on removing illusion labels every time mouse is clicked
-		if(currentImage == 0) {
+		if(currentImage == 2) {
+			illusionframe.remove(illusionLabelOne);
+			illusionframe.add(illusionLabelTwo);
+			illusionframe.pack();
 			
 		}
-		illusionframe.remove(illusionLabelOne);
+		if(currentImage == 3) {
+			illusionframe.remove(illusionLabelTwo);
+			illusionframe.add(illusionLabelThree);
+			illusionframe.pack();
+		}
+	
 		// 13. load a new image like before (this is more than one line of code)
 
-		illusionframe.add(illusionLabelThree);
+	
 		// 14. pack the frame
-		illusionframe.pack();
+		
 	}
 
 	// [OPTIONAL] 15. goad your users with some annoying or witty pop-ups
