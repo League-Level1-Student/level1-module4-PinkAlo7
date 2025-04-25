@@ -5,11 +5,13 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import game_tools.Sound;
 
@@ -48,20 +50,46 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
         	 play("587017__victor_natas__something-spooky.wav");
-        	 JOptionPane.showMessageDialog(null,  "Hi again, you are close to the secret coordinates, and so "
-        			+ "\n the instructions of this code told me to let you aska question. But I don't know why"
-        			+ "\nI should when I won't even be able to answer it. Anyway, you're close, and I guess you "
-        			+ "\ncan ask a quyestion. ");
+        	 JOptionPane.showInputDialog("Hi again, you are close to the secret coordinates so you "
+        			+ "\nget to ask a question. ");
+        		int randomNum = new Random().nextInt(4);
+    			System.out.println(randomNum);
+    			if(randomNum == 0) {
+    				JOptionPane.showMessageDialog(null, "Yes!");
+    			}
+    			if(randomNum == 1) {
+    				JOptionPane.showMessageDialog(null,"No");
+    			}
+    			if(randomNum == 2) {
+    				JOptionPane.showMessageDialog(null, "Maybe you should ask Google?");
+    			}
+    			if(randomNum == 3) {
+    				JOptionPane.showMessageDialog(null, "I don't know");
+    			}
+    			
+        }
+        }
             // 8. Find a spooky sound and put it in your _05_fortune_teller package (freesound.org)
             //    play("creepy-noise.wav");
             
             // 9. Play the sound
           
             // 10. Insert your completed Magic 8 ball code here
-            
+        	 public static void main(String[] args) {
+        		 try {
+					SwingUtilities.invokeLater(new FortuneTeller());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		 JOptionPane.showMessageDialog(null,"Welcome! I am about to give you a picture, and you will have to click a specific point on that picture in order to reveal"
+     					+ "\n your fortune. However, you will not know the coordinates of that point unless you are able to solve this clue: the y-coordinate is 1 number less  "
+     					+ "\nthan the x coordinate. If you take the x-coordinate divided by 4, and multiply it by the y-coordinate, you will get 1580. Hope you know algebra!");
+     			    
+        		
         }
 
-    }
+    
 
     private boolean areClose(int mouseX, int secretLocationX) {
         return mouseX < secretLocationX + 15 && mouseX > secretLocationX - 15;
