@@ -38,7 +38,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         int mouseY = e.getY();
         
         // 5. Print the mouseX variable
-        System.out.println(mouseX + mouseY);
+        System.out.println(mouseX + " " + mouseY);
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
         // 7. Adjust your secret location co-ordinates here:
@@ -47,15 +47,16 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
-        	JOptionPane.showMessageDialog(null,  "Hi again, you are close to the secret coordinates, and so "
-        			+ "/n the instructions of this code told me to let you aska question. But I don't know why"
-        			+ "/nI should when I won't even be able to answer it. Anyway, you're close, and I guess you "
-        			+ "/ncan ask a quyestion. ");
+        	 play("587017__victor_natas__something-spooky.wav");
+        	 JOptionPane.showMessageDialog(null,  "Hi again, you are close to the secret coordinates, and so "
+        			+ "\n the instructions of this code told me to let you aska question. But I don't know why"
+        			+ "\nI should when I won't even be able to answer it. Anyway, you're close, and I guess you "
+        			+ "\ncan ask a quyestion. ");
             // 8. Find a spooky sound and put it in your _05_fortune_teller package (freesound.org)
             //    play("creepy-noise.wav");
             
             // 9. Play the sound
-            
+          
             // 10. Insert your completed Magic 8 ball code here
             
         }
