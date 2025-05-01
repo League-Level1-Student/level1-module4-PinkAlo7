@@ -29,10 +29,10 @@ public void run() {
 	box2.setBounds(470,50,170, 70);
 	calculatorPanel.add(box1);
 	calculatorPanel.add(box2);
-	add.setBounds(50, 201,165,50);
-	subtract.setBounds(285, 201, 165, 50);
-	multiplication.setBounds(510, 201, 165, 50);
-	division.setBounds(735, 201, 165, 50);
+	add.setBounds(44, 201,170,50);
+	subtract.setBounds(258, 201, 170, 50);
+	multiplication.setBounds(472, 201, 170, 50);
+	division.setBounds(686, 201, 170, 50);
 	calculatorPanel.add(add);
 	calculatorPanel.add(subtract);
 	calculatorPanel.add(multiplication);
@@ -43,6 +43,8 @@ public void run() {
 	calculatorPanel.setPreferredSize(new Dimension(900,700));
 	calculatorFrame.pack();
 	calculatorPanel.addMouseListener(this);
+	
+
 	
 }
 
