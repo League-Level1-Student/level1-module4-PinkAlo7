@@ -1,6 +1,9 @@
 package _06_calculator;
 
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -10,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Calculator implements MouseListener {
+public class Calculator implements ActionListener, MouseListener {
 JFrame calculatorFrame = new JFrame();
 JPanel calculatorPanel = new JPanel();
 JTextField box1 = new JTextField();
@@ -20,6 +23,7 @@ JButton subtract = new JButton("subtract");
 JButton multiplication = new JButton("multiplication");
 JButton division = new JButton("division");
 JLabel answer = new JLabel();
+
 
 public void run() {
 	calculatorFrame.setVisible(true);
@@ -39,42 +43,68 @@ public void run() {
 	calculatorPanel.add(division);
 	calculatorPanel.add(answer);
 	calculatorFrame.add(calculatorPanel);
-	
+	calculatorPanel.add(answer);
+	answer.setBounds(0, 388, 900, 60);
+	calculatorPanel.addMouseListener(this);
 	calculatorPanel.setPreferredSize(new Dimension(900,700));
 	calculatorFrame.pack();
-	calculatorPanel.addMouseListener(this);
-	
-
+	add.addActionListener(this);
+	subtract.addActionListener(this);
+	multiplication.addActionListener(this);
+	division.addActionListener(this);
+	answer.setHorizontalAlignment(JLabel.CENTER);
+answer.setFont(new Font("Arial", Font.PLAIN, 40));
 	
 }
-
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	String n1 = box1.getText();
+	double num1 = Double.parseDouble(n1);
+	String n2 = box2.getText();
+	double num2 = Double.parseDouble(n2);
+		if(e.getSource() == add) {
+	answer.setText(String.valueOf(num1 + num2));
+	}
+		if(e.getSource() == subtract) {
+			answer.setText(String.valueOf(num1 - num2));
+		}
+		if(e.getSource() == multiplication) {
+			answer.setText(String.valueOf(num1*num2));
+		}
+		if(e.getSource() == division) {
+			answer.setText(String.valueOf(num1/num2));
+		}
+}
 @Override
 public void mouseClicked(MouseEvent e) {
 	// TODO Auto-generated method stub
-	System.out.println(e.getX() + " " + e.getY());
+	
 }
-
 @Override
 public void mousePressed(MouseEvent e) {
 	// TODO Auto-generated method stub
-	
+	System.out.println(e.getX() + " " + e.getY());
 }
-
 @Override
 public void mouseReleased(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
-
 @Override
 public void mouseEntered(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
-
 @Override
 public void mouseExited(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
+
+
+
+
 }
+
+

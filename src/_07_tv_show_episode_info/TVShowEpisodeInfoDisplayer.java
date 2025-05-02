@@ -1,6 +1,9 @@
 package _07_tv_show_episode_info;
 
 
+import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -8,12 +11,28 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class TVShowEpisodeInfoDisplayer {
-	
+public class TVShowEpisodeInfoDisplayer implements MouseListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JTextField textField = new JTextField();
+	JButton submit = new JButton("Submit");
 	public TVShowEpisodeInfoDisplayer() {
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.add(panel);
+		panel.setPreferredSize(new Dimension(600, 200));
+		panel.setLayout(null);
+		panel.add(textField);
 		
+		panel.add(submit);
+		panel.addMouseListener(this);
+		frame.pack();
 	}
 
 	
@@ -73,5 +92,55 @@ public class TVShowEpisodeInfoDisplayer {
 		}
 		
 		return res;
+	}
+
+
+
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println(e.getX() + " " + e.getY());
+	}
+
+
+
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,6 +1,7 @@
 package Alo_Game;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 
@@ -43,14 +44,26 @@ JLabel m6 = loadImageFromComputer("mana standing facing forward.jpg");
 		
 JLabel manaFace = loadImageFromComputer("DSC01678.JPG");
 JLabel atiFace = loadImageFromComputer("DSC01679.JPG");
+panel.add(m1);
+
+scaleLabelImage(m1, 100, 500);
+
+m1.setBounds(0,200,500,500);
 
 
 frame.pack();
 	}
+	
+	public void scaleLabelImage(JLabel label, int width, int height) {
+		ImageIcon icon =  (ImageIcon)(label.getIcon());
+		 Image scaledImage = icon.getImage().getScaledInstance(width , height, Image.SCALE_SMOOTH);
+		 label.setIcon(new ImageIcon(scaledImage));
+		
+	}
 
 public JLabel loadImageFromComputer(String fileName) {
 	URL imageURL = getClass().getResource(fileName);
-	Icon icon = new ImageIcon(imageURL);
+	ImageIcon icon = new ImageIcon(imageURL);
 	return new JLabel(icon);
 }
 public void mouseClicked(MouseEvent e) {
