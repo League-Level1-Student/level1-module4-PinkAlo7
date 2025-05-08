@@ -2,6 +2,8 @@ package _07_tv_show_episode_info;
 
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -17,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TVShowEpisodeInfoDisplayer implements MouseListener {
+public class TVShowEpisodeInfoDisplayer implements MouseListener, ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JTextField textField = new JTextField();
@@ -29,10 +31,14 @@ public class TVShowEpisodeInfoDisplayer implements MouseListener {
 		panel.setPreferredSize(new Dimension(600, 200));
 		panel.setLayout(null);
 		panel.add(textField);
-		
+		textField.setBounds(25, 84, 340, 40);
+		submit.setBounds(400, 80, 120, 50);
+		panel.addMouseListener(this);
 		panel.add(submit);
 		panel.addMouseListener(this);
+		submit.addActionListener(this);
 		frame.pack();
+		
 	}
 
 	
@@ -142,5 +148,19 @@ public class TVShowEpisodeInfoDisplayer implements MouseListener {
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == submit) {
+			String show = textField.getText();
+		JOptionPane.showMessageDialog(null, getShowEpisodeData(show));
+		}
+			
 	}
 }
