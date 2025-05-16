@@ -15,7 +15,7 @@ public class whack_a_mole implements MouseListener {
 	JPanel panel = new JPanel();
 	Random random = new Random();
 	int randomNum = random.nextInt();
-	JButton box1 = new JButton(null);
+	JButton box1 = new JButton("");
 	JButton box2 = new JButton();
 	JButton box3 = new JButton();
 	JButton box4 = new JButton();
